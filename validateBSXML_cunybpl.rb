@@ -68,7 +68,7 @@ module BuildingSync
         response = http.request(request)
 
         @hash_response = JSON.parse(response.read_body)
-        File.open("#{File.dirname(xml_path)}/#{File.basename(xml_path,'.xml')}_bplValidateBSXML_#{Time.now.strftime("%m%dT%k%S")}.json","w") do |f|
+        File.open("#{File.dirname(xml_path)}/#{File.basename(xml_path,'.xml')}_bplValidateBSXML_#{Time.now.strftime("%m%dT%H%M%S")}.json","w") do |f|
             f.write(JSON.pretty_generate(@hash_response))
         end
         puts "#{i+1} files validated."
